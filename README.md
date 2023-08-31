@@ -10,5 +10,4 @@ Method_1: Open the SnakeGame.cpp file and then press F5, to create .exe file and
 Above method, only works if you have raylib installed on your system
 
 <br>
-<br>
 Method_2: Open "HungrySnake Harvest (Only Game)" folder, then double click on HungrySnake Harvest.exe file
