@@ -142,6 +142,7 @@ class MainGame{
         Food food = Food(snake.body);
         bool run = true;
         int score = 0;
+        int highScore = 0;
         Sound eat, background, gameOverSound;
 
         // Constructor
@@ -177,6 +178,9 @@ class MainGame{
                 food.position = food.randomPosition(snake.body);
                 snake.add = true;
                 score += 100;
+                if (score >= highScore){
+                    highScore = score;
+                }
                 PlaySound(eat);
             }
         }
@@ -242,6 +246,7 @@ int main (){
         DrawText("Exit: Esc_Key", screenWidth/2 + 300, 15, 22, BLACK);
 
         DrawText(TextFormat("Score : %i", game.score), width_window-5, width_window + screenHeight + 10, 30, BLACK);
+        DrawText(TextFormat("High Score : %i", game.highScore), width_window + 300, width_window + screenHeight + 15, 25, BLACK);
 
         DrawText("By Utkarsh Dikshit", 2*width_window + screenWidth - 150, 2*width_window + screenHeight - 20, 12, RED);
 
