@@ -8,8 +8,7 @@ Color snakeColorHead = {42, 48, 212, 255};
 Color snakeColorTail = {42, 124, 212, 255};
 
 int cellsize = 20;
-int cellcount_x = 40;
-int cellcount_y = 25;
+int cellcount_x = 40, cellcount_y = 25;
 int width_window = 50;
 int screenWidth = 800, screenHeight = 500;
 double lastUpdateTime = 0.0;
