@@ -105,11 +105,6 @@ class Snake{
                 }
                 if (i != 0){
                     // Below things are for rounded rectangle as a snake
-                    // Rectangle (struct) has four component
-                    // * position Xi (starting point 2D Rectangle)
-                    // * position Yi (starting point 2D Rectangle)
-                    // * position Xf (w.r.t. Xi) (ending point 2D Rectangle)
-                    // * position Yf (w.r.t. Yi) (ending point 2D Rectangle)
                     Rectangle rec = Rectangle {width_window + x*cellsize, width_window + y*cellsize, float (cellsize), float (cellsize)};
                     DrawRectangleRounded(rec, 0.8, 7, snakeColorTail);
                 }
@@ -151,12 +146,13 @@ class MainGame{
             background = LoadSound("src/sounds/Background.mp3");
             gameOverSound = LoadSound("src/sounds/gameOver.wav");
         }
-
-        // ~MainGame(){
-        //     UnloadSound(eat);
-        //     UnloadSound(background);
-        //     UnloadSound(gameOverSound);
-        // }
+        
+        // Deconstructure
+        ~MainGame(){
+            UnloadSound(eat);
+            UnloadSound(background);
+            UnloadSound(gameOverSound);
+        }
 
 
         void draw(){
@@ -249,11 +245,6 @@ int main (){
 
         DrawText("By Utkarsh Dikshit", 2*width_window + screenWidth - 150, 2*width_window + screenHeight - 20, 12, RED);
 
-        // Rectangle (struct) has four component
-        // * position Xi (starting point 2D Rectangle)
-        // * position Yi (starting point 2D Rectangle)
-        // * position Xf (w.r.t. Xi) (ending point 2D Rectangle)
-        // * position Yf (w.r.t. Yi) (ending point 2D Rectangle)
         DrawRectangleLinesEx(Rectangle{(float)width_window - 5, (float)width_window - 5, (float)screenWidth + 10, (float)screenHeight + 10}, 5, BLACK);
 
         game.draw();
