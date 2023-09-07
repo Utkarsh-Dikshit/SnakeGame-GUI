@@ -10,6 +10,8 @@ It works with raylib version 4.5. Tested on both Windows 10 and Windows 11.
 
 -----------------------------------------------------------------------------------------------------------------------------
 
+![Img_snakegame](https://github.com/Utkarsh-Dikshit/SnakeGame-GUI/assets/143602487/8ecf66b7-7efb-41b3-af9d-e1842c5705a2)
+
 -----------------------------------------------------------------------------------------------------------------------------
 
 # How to see the code
