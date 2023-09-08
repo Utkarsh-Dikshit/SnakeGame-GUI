@@ -43,14 +43,14 @@ class Food {
         Food(deque <Vector2> snakeBody){
             Image image = LoadImage ("src/Fruit/Decreased_size.png");
             texture = LoadTextureFromImage(image);
-            // UnloadImage(image);
+            UnloadImage(image);
             position = randomPosition(snakeBody);
         }
 
         // DECONSTRUCTOR
-        // ~Food(){
-        //     UnloadTexture(texture);
-        // }
+        ~Food(){
+            UnloadTexture(texture);
+        }
 
         void draw(){
             // DrawTexture(texture, position.x *cellsize, position.y*cellsize, WHITE);
@@ -287,9 +287,7 @@ int main (){
             game.keyPressed();
         }
         EndDrawing();
-    
     }
-    
     
     CloseWindow();
     return 0;
