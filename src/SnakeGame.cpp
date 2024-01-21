@@ -7,10 +7,11 @@ Color bgColour = {255, 255, 153, 255};
 Color snakeColorHead = {42, 48, 212, 255}; 
 Color snakeColorTail = {42, 124, 212, 255};
 
+// size of each cell = 20; screenwidth / size of each cell = cellcount_x; screenheight/ size of each cell = cellcount_y;
 int cellsize = 20;
-int cellcount_x = 40, cellcount_y = 25;
 int width_window = 50;
 int screenWidth = 800, screenHeight = 500;
+int cellcount_x = 40, cellcount_y = 25;
 double lastUpdateTime = 0.0;
 bool gamePause = false;
 
@@ -75,6 +76,7 @@ class Food {
             return Vector2 {x, y};
         }
         
+        // Function to get a position of food while making sure that food will not generate at a cell that has been already occupied by the tail at that time 
         Vector2 randomPosition(deque <Vector2> snakeBody){
             
             position = randomCell();
@@ -86,7 +88,7 @@ class Food {
         }
 };
 
-// Using Dequeue (data structure) (including deque) for snake (as we can add and remove element from both ends);
+// Using Deque (data structure) (including deque) for snake (as we can add and remove element from both ends);
 class Snake{
     public:
         deque <Vector2> body = {Vector2{5,5}, Vector2{4,5}, Vector2{3,5}};
@@ -114,7 +116,7 @@ class Snake{
         // To move the snake, we take the last cell and move it to the ahead of first cell on the basis of movement from user.
         Vector2 dir = {1,0};
         void update(){
-            body.push_front(Vector2Add(body[0] /*SNAKE HEAD*/, dir));
+            body.push_front(Vector2Add(body[0] /*SNAKE HEAD*/, dir)); // add the element at the beginning of the deque
 
             if (add == true){
                 add = false;
@@ -149,6 +151,7 @@ class MainGame{
         
         // Deconstructure
         ~MainGame(){
+            CloseAudioDevice();
             UnloadSound(eat);
             UnloadSound(background);
             UnloadSound(gameOverSound);
@@ -217,8 +220,6 @@ class MainGame{
 };
 
 int main (){
-
-    // cout << "Starting the game..." << endl;
 
     InitWindow(2*width_window + screenWidth, 2*width_window + screenHeight, "HungrySnake Harvest"); // {width, height, name(any)}
 
